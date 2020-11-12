@@ -33,6 +33,7 @@
         "username": "_SYSTEM",
         "password": "SYS"
       }
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic"
 
 }
