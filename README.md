@@ -44,6 +44,6 @@ $ docker-compose up -d
 3. Start the production.
 
 4. Now Open Postman or create a multipart request into a form pointing to localhost:9980/ using POST with a form-data file attribute. See sample (use an image or pdf with image inside):
-<img src="https://github.com/yurimarx/upload-adapter/raw/main/postman.png" alt="postman">
+<img src="https://github.com/yurimarx/ocr-service/raw/master/postman.png" alt="postman">
 
-5. See the text returned - we used english and portuguese only in the first version
+5. See the text returned - support to english and portuguese languages only, in the first version
