@@ -1,4 +1,4 @@
-Class dc.ocr.UploadService Extends Ens.BusinessService
+Class dc.ocr.OcrService Extends Ens.BusinessService
 {
 
 // extends Ens.BusinessService to create a custom Business service using Object Script
