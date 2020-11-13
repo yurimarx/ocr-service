@@ -1,22 +1,10 @@
 version: "2.2"
 services:
-  jgw:
-    image: intersystemscommunity/pexoperation:latest
-#    environment:
-#      - JVMARGS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
-    build:
-      context: java
-      dockerfile: Dockerfile
-    restart: always
-    ports: 
-      - 55555:55555
-#      - 5005:5005
-  
   iris:
     init: true
     image: intersystemscommunity/pexdemo:latest
     build:
-      context: iris
+      context: .
       dockerfile: Dockerfile
 #    depends_on:
 #      - 'jgw'
@@ -25,4 +13,5 @@ services:
       - 9980:9980
       - 52773:52773
       - 51773:51773
+      - 55555:55555
 

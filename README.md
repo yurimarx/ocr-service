@@ -1,8 +1,7 @@
-## iris-interoperability-template
-This is a template of InterSystems IRIS Interoperability solution.
-It contains a simple interoperablity solution which reads data from Reddit, filters it and outputs into file or sends via email.
+## ocr-service
+This is an interoperability IRIS production to extract text from images using OCR.
 
-## What The Sample Does
+## What The App Does
 
 This sample has an interoperability [production](https://github.com/intersystems-community/iris-interoperability-template/blob/master/src/dc/Demo/Production.cls) with an inbound [Reddit Adapter](https://github.com/intersystems-community/iris-interoperability-template/blob/master/src/dc/Reddit/InboundAdapter.cls) which is used by a [Business Service](https://github.com/intersystems-community/iris-interoperability-template/blob/master/src/dc/Demo/RedditService.cls) to read data from Reddit.com.
 It reads from reddit.com/new/.json every 15 sec.
