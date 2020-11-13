@@ -1,9 +1,3 @@
 .DS_Store
-/target/archive-tmp
-/target/classes
-/target/generated-sources
-/target/maven-archiver
-/target/maven-compiler-plugin
-/target/test-classes
 
 
