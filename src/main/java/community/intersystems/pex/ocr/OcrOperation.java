@@ -52,8 +52,8 @@ public class OcrOperation {
 		StringBuilder out = new StringBuilder();
 
 		ITesseract tesseract = new Tesseract();
-		tesseract.setDatapath("/usr/share/tessdata/");
-		tesseract.setLanguage("por"); // choose your language
+		tesseract.setDatapath("/usr/share/tessdata/"); //directory to trained models 
+		tesseract.setLanguage("por"); // choose your language/trained model
 
 		for (int page = 0; page < document.getNumberOfPages(); page++) {
 			BufferedImage bim = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
@@ -78,10 +78,11 @@ public class OcrOperation {
 	private String extractTextFromImage(File tempFile) throws TesseractException {
 
 		ITesseract tesseract = new Tesseract();
-		tesseract.setDatapath("/usr/share/tessdata/");
-		tesseract.setLanguage("eng+por"); // choose your language
+		tesseract.setDatapath("/usr/share/tessdata/"); //directory to trained models
+		tesseract.setLanguage("eng+por"); // choose your language/trained model
 
-		return tesseract.doOCR(tempFile);
+		return tesseract.doOCR(tempFile); //call tesseract function doOCR() 
+										  //passing the file to be processed with OCR technique
 
 	}
 

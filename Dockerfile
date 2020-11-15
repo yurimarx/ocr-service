@@ -25,8 +25,7 @@ RUN iris start IRIS \
 
 USER root   
 
-###########################################
-#### Install Java 8
+# Install Java 8 using apt-get from ubuntu repository
 RUN apt-get update && \
 	apt-get install -y openjdk-8-jdk && \
 	apt-get install -y ant && \
@@ -42,16 +41,19 @@ RUN apt-get install -y ca-certificates-java && \
 	rm -rf /var/lib/apt/lists/* && \
 	rm -rf /var/cache/oracle-jdk8-installer;
 
-# Setup JAVA_HOME, this is useful for docker commandline
+# Setup JAVA_HOME, to enable apps to know 
+# where the Java was installed
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN export JAVA_HOME
 ENV JRE_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN export JRE_HOME
+
+# Setup classpath, to enable apps to know 
+# where java classes and java jar libraries was installed
 ENV classpath .:/usr/irissys/dev/java/lib/JDK18/*:/opt/irisapp/*:/usr/irissys/dev/java/lib/gson/*:/usr/irissys/dev/java/lib/jackson/*:/jgw/*
 RUN export classpath
 ENV CLASSPATH .:/usr/irissys/dev/java/lib/JDK18/*:/opt/irisapp/*:/usr/irissys/dev/java/lib/gson/*:/usr/irissys/dev/java/lib/jackson/*:/jgw/*
 RUN export CLASSPATH
-
 
 USER root
 
@@ -59,18 +61,25 @@ ARG APP_HOME=/tmp/app
 
 COPY src $APP_HOME/src
 
+# Tess4J and another java libraries used, 
+# are into jgw folder and jgw folder is in the classpath
 COPY jgw /jgw
 
+# Copy our Java OCR program, packaged into a jar, to the jgw
 COPY target/ocr-pex-1.0.0.jar /jgw/ocr-pex-1.0.0.jar  
 
 COPY jgw/* /usr/irissys/dev/java/lib/JDK18/
 
+# Install tesseract using ubuntu apt-get
 RUN apt-get update && apt-get install tesseract-ocr -y
 
 USER root
 
+# Copy trained models eng and por to the models folder
 COPY tessdata /usr/share/tessdata
 
+# Install and config default OS locale - 
+# it is required to tesseract works fine
 RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
  && locale-gen "en_US.UTF-8"
 ENV LANG=en_US.UTF-8 \
