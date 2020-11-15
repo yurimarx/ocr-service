@@ -33,6 +33,9 @@ $ docker-compose build
 $ docker-compose up -d
 ```
 
+## See working
+<img src="https://github.com/yurimarx/ocr-service/raw/master/ocrgif.gif" alt="OCR in Action">
+
 ## How to Run the Ocr Production
 
 1. Open the [production](http://localhost:52773/csp/irisapp/EnsPortal.ProductionConfig.zen?PRODUCTION=dc.ocr.OcrProduction) 
