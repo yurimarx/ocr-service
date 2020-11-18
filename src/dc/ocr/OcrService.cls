@@ -50,14 +50,17 @@ Method OnProcessInput(pInput As %GlobalBinaryStream, pOutput As %RegisteredObjec
         Do file.CopyFromAndSave(message.Body)
 
         // Connect a Gateway instance to server JavaGate on the host machine
-        set GW = ##class(%Net.Remote.Gateway).%New()
-        set st = GW.%Connect("127.0.0.1", "55555", "IRISAPP",,)
+        //set GW = ##class(%Net.Remote.Gateway).%New()
+        //set st = GW.%Connect("127.0.0.1", "55555", "IRISAPP",,)
         //instantiate java ocr class
-        set proxyOcr = ##class(%Net.Remote.Object).%New(GW,"community.intersystems.pex.ocr.OcrOperation")
+        //set proxyOcr = ##class(%Net.Remote.Object).%New(GW,"community.intersystems.pex.ocr.OcrOperation")
         //call ocr method to get text from image
-        set pResponse = proxyOcr.doOcr(file.Filename)
+        Set pRequest = ##class(dc.ocr.OcrRequest).%New()
+        Set pRequest.FileName = file.Filename
+        Set tSC = ..SendRequestSync("OcrOperation", pRequest, .pResponse, 1200)
+        //set pResponse = proxyOcr.doOcr(file.Filename)
         //returns to the service
-        Set pOutput = pResponse
+        Set pOutput = pResponse.StringValue
         Set tSC=$$$OK
     
     //returns error message to the user

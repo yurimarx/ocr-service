@@ -11,12 +11,34 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
+import com.intersystems.enslib.pex.BusinessOperation;
+import com.intersystems.gateway.GatewayContext;
+import com.intersystems.jdbc.IRIS;
+import com.intersystems.jdbc.IRISObject;
+
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
-public class OcrOperation {
+public class OcrOperation extends BusinessOperation {
 
+	// Connection to InterSystems IRIS
+    private IRIS iris;
+
+	@Override
+	public void OnInit() throws Exception {
+		iris = GatewayContext.getIRIS();
+	}
+	
+	@Override
+	public Object OnMessage(Object request) throws Exception {
+		IRISObject req = (IRISObject) request;
+		String filePath = req.getString("FileName");
+		String ocrText = doOcr(filePath);
+		IRISObject response = (IRISObject)(iris.classMethodObject("Ens.StringContainer","%New",ocrText));
+        return response;
+	}
+	
 	public String doOcr(String filePath) {
 
 		File tempFile = new File(filePath);
@@ -84,6 +106,12 @@ public class OcrOperation {
 		return tesseract.doOCR(tempFile); //call tesseract function doOCR() 
 										  //passing the file to be processed with OCR technique
 
+	}
+
+	@Override
+	public void OnTearDown() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
