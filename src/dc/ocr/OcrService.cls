@@ -49,18 +49,31 @@ Method OnProcessInput(pInput As %GlobalBinaryStream, pOutput As %RegisteredObjec
         //save body message (the file content) to file object
         Do file.CopyFromAndSave(message.Body)
 
-        // Connect a Gateway instance to server JavaGate on the host machine
+        // Connect a Gateway instance to server JavaGateway on the host machine, if you do not want use pex
         //set GW = ##class(%Net.Remote.Gateway).%New()
         //set st = GW.%Connect("127.0.0.1", "55555", "IRISAPP",,)
-        //instantiate java ocr class
+        //instantiate java ocr class, if you do not want use pex
         //set proxyOcr = ##class(%Net.Remote.Object).%New(GW,"community.intersystems.pex.ocr.OcrOperation")
-        //call ocr method to get text from image
+        //returns to the service
+        //set pResponse = proxyOcr.doOcr(file.Filename)
+        
+        //call ocr method to get text from image, if you want to use pex
         Set pRequest = ##class(dc.ocr.OcrRequest).%New()
         Set pRequest.FileName = file.Filename
+        
+        // call java pex operation to do ocr, passing file into pRequest and receive ocr text with pResponse
         Set tSC = ..SendRequestSync("OcrOperation", pRequest, .pResponse, 1200)
-        //set pResponse = proxyOcr.doOcr(file.Filename)
+        
+        //save the results into database to use text analytics - nlp
+        Set ocrTable = ##class(dc.ocr.OcrTable).%New()
+        Set ocrTable.FileName = file.Filename
+        Set ocrTable.OcrText = pResponse.StringValue
+ 
+        Set tSC = ocrTable.%Save()
+
         //returns to the service
         Set pOutput = pResponse.StringValue
+        
         Set tSC=$$$OK
     
     //returns error message to the user

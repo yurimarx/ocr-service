@@ -5,7 +5,11 @@
  do $System.OBJ.LoadDir("/opt/irisapp/src","ck",,1)
  zpm "install sslclient"
 
+ Set app = $System.CSP.GetDefaultApp("IRISAPP") _ "/"
+ Do EnableIKnow^%SYS.cspServer(app)
+
  zn "%SYS"
  Do ##class(Security.Users).UnExpireUserPasswords("*")
 
+ 
 halt
