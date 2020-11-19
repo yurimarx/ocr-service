@@ -83,7 +83,7 @@ public class OcrOperation extends BusinessOperation {
 			// Create a temp image file
 			File temp = File.createTempFile("tempfile_" + page, ".png");
 			ImageIO.write(bim, "png", temp);
-
+ 
 			String result = tesseract.doOCR(temp);
 			out.append(result);
 

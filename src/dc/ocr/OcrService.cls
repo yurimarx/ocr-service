@@ -29,6 +29,7 @@ Method OnProcessInput(pInput As %GlobalBinaryStream, pOutput As %RegisteredObjec
 {
     //try to do the actions
     try {
+        
         Set reader = ##class(%Net.MIMEReader).%New() //creates a MIMEReader to extract files from multipart requests 
         Do reader.OpenStream(pInput) //reader open the file
 
