@@ -28,11 +28,10 @@ $ docker-compose build
 $ docker-compose up -d
 ```
 
-## See working
-### OCR working:
+## OCR working:
 <img src="https://github.com/yurimarx/ocr-service/raw/master/ocrgif.gif" alt="OCR in Action">
 
-### OCR and NLP working together:
+## OCR and NLP working together:
 <img src="https://github.com/yurimarx/ocr-service/raw/master/nlp2.gif" alt="OCR and NLP in Action">
 
 ## How to Run the Ocr Production
