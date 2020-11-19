@@ -1,0 +1,27 @@
+[Fri Nov  6 12:16:11 2020] :: Installer with command line = ""
+[Fri Nov  6 12:16:11 2020] :: Starting installer thread
+[Fri Nov  6 12:16:11 2020] :: Stopping connect processes
+[Fri Nov  6 12:16:11 2020] :: Stopping detector process
+[Fri Nov  6 12:16:11 2020] :: Backing up C:\Users\yurim\AppData\Roaming\Macromedia\Flash Player\www.macromedia.com\bin\adobeconnectaddin to C:\Users\yurim\AppData\Local\Temp\Con7B85.tmp
+[Fri Nov  6 12:16:11 2020] :: Backing up C:\Users\yurim\AppData\Roaming\Adobe\Connect to C:\Users\yurim\AppData\Local\Temp\Con7B85.tmp
+[Fri Nov  6 12:16:11 2020] :: Starting file download
+[Fri Nov  6 12:16:11 2020] :: Extracting files
+[Fri Nov  6 12:16:13 2020] :: Extracting files success
+[Fri Nov  6 12:16:13 2020] :: Checking payload
+[Fri Nov  6 12:16:16 2020] :: Payload check success
+[Fri Nov  6 12:16:16 2020] :: Stopping connect processes
+[Fri Nov  6 12:16:16 2020] :: Stopping detector process
+[Fri Nov  6 12:16:16 2020] :: Creating base directories at C:\Users\yurim\AppData\Roaming\Adobe\Connect
+[Fri Nov  6 12:16:16 2020] :: Copy payload from C:\Users\yurim\AppData\Local\Temp\Con7C33.tmp to C:\Users\yurim\AppData\Roaming\Adobe\Connect
+[Fri Nov  6 12:16:16 2020] :: Payload copy success
+[Fri Nov  6 12:16:16 2020] :: Removing extracted payload from C:\Users\yurim\AppData\Local\Temp\Con7C33.tmp
+[Fri Nov  6 12:16:16 2020] :: file download success=1
+[Fri Nov  6 12:16:16 2020] :: Creating uninstall keys
+[Fri Nov  6 12:16:16 2020] :: uninstall keys succcess=1
+[Fri Nov  6 12:16:16 2020] :: Creating protocol keys
+[Fri Nov  6 12:16:16 2020] :: protocol keys success=1
+[Fri Nov  6 12:16:16 2020] :: Creating startup keys
+[Fri Nov  6 12:16:16 2020] :: Startup keys success=1
+[Fri Nov  6 12:16:16 2020] :: Committing transaction
+[Fri Nov  6 12:16:16 2020] :: Starting Detector process
+[Fri Nov  6 12:16:26 2020] :: Creating shortcut target="C:\Users\yurim\AppData\Roaming\Adobe\Connect\Connect.exe", path="C:\Users\yurim\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Adobe Connect.lnk", descr="Adobe Connect"
