@@ -46,9 +46,10 @@ Method OnProcessInput(pInput As %GlobalBinaryStream, pOutput As %RegisteredObjec
         //create a file object to save the multipart file
         Set file=##class(%Stream.FileBinary).%New()
         //points the file to folder informed into folder parameter, plus upload filename from header
-        Set file.Filename=..Folder_filename 
+        Set file.Filename=..Folder_filename
+        
         //save body message (the file content) to file object
-        Do file.CopyFromAndSave(message.Body)
+        Do file.CopyFromAndSave(message.Body)  
 
         // Connect a Gateway instance to server JavaGateway on the host machine, if you do not want use pex
         //set GW = ##class(%Net.Remote.Gateway).%New()
@@ -60,7 +61,7 @@ Method OnProcessInput(pInput As %GlobalBinaryStream, pOutput As %RegisteredObjec
         
         //call ocr method to get text from image, if you want to use pex
         Set pRequest = ##class(dc.ocr.OcrRequest).%New()
-        Set pRequest.FileName = file.Filename
+        Set pRequest.FileName = ..Folder_filename
         
         // call java pex operation to do ocr, passing file into pRequest and receive ocr text with pResponse
         Set tSC = ..SendRequestSync("OcrOperation", pRequest, .pResponse, 1200)
@@ -68,13 +69,12 @@ Method OnProcessInput(pInput As %GlobalBinaryStream, pOutput As %RegisteredObjec
         //save the results into database to use text analytics - nlp
         Set ocrTable = ##class(dc.ocr.OcrTable).%New()
         Set ocrTable.FileName = file.Filename
-        Set ocrTable.OcrText = pResponse.StringValue
- 
+        Set ocrTable.OcrText = pResponse.StringValue 
         Set tSC = ocrTable.%Save()
 
         //returns to the service
         Set pOutput = pResponse.StringValue
-        
+
         Set tSC=$$$OK
     
     //returns error message to the user
