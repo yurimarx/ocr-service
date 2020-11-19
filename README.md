@@ -8,11 +8,6 @@ This application receive a http multipart request with a file, extract text usin
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
-## Installation: ZPM
-
-Open IRIS Namespace with Interoperability Enabled.
-Open Terminal and call:
-USER>zpm "install ocr-service"
 
 ## Installation: Docker
 Clone/git pull the repo into any local directory
@@ -34,7 +29,11 @@ $ docker-compose up -d
 ```
 
 ## See working
+### OCR working:
 <img src="https://github.com/yurimarx/ocr-service/raw/master/ocrgif.gif" alt="OCR in Action">
+
+### OCR and NLP working together:
+<img src="https://github.com/yurimarx/ocr-service/raw/master/nlp2.gif" alt="OCR and NLP in Action">
 
 ## How to Run the Ocr Production
 
@@ -50,3 +49,13 @@ $ docker-compose up -d
 <img src="https://github.com/yurimarx/ocr-service/raw/master/postman.png" alt="postman">
 
 5. See the text returned - support to english and portuguese languages only, in the first version
+
+6. Send 2 or 3 files with some text
+
+7. Open the [NLP Domain] (http://localhost:52773/csp/irisapp/_iKnow.UI.Architect.zen?$NAMESPACE=IRISAPP&DOMAIN=dc.ocr.OcrNLP)
+
+8. Press build button to index OCR text
+
+9. Go to the [NLP Domain Explorer] (http://localhost:52773/csp/IRISAPP/_iKnow.UI.KnowledgePortal.zen?$NAMESPACE=IRISAPP&domain=1)
+
+10. Analyze the texts and enjoy!
