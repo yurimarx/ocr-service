@@ -13,7 +13,7 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 Clone/git pull the repo into any local directory
 
 ```
-$ git clone https://github.com/yurimarx/ocr-adapter.git
+$ git clone https://github.com/yurimarx/ocr-service.git
 ```
 
 Open the terminal in this directory and run:
@@ -51,10 +51,10 @@ $ docker-compose up -d
 
 6. Send 2 or 3 files with some text
 
-7. Open the [NLP Domain] (http://localhost:52773/csp/irisapp/_iKnow.UI.Architect.zen?$NAMESPACE=IRISAPP&DOMAIN=dc.ocr.OcrNLP)
+7. Open the [NLP Domain](http://localhost:52773/csp/irisapp/_iKnow.UI.Architect.zen?$NAMESPACE=IRISAPP&DOMAIN=dc.ocr.OcrNLP)
 
 8. Press build button to index OCR text
 
-9. Go to the [NLP Domain Explorer] (http://localhost:52773/csp/IRISAPP/_iKnow.UI.KnowledgePortal.zen?$NAMESPACE=IRISAPP&domain=1)
+9. Go to the [NLP Domain Explorer](http://localhost:52773/csp/IRISAPP/_iKnow.UI.KnowledgePortal.zen?$NAMESPACE=IRISAPP&domain=1)
 
 10. Analyze the texts and enjoy!
