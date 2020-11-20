@@ -63,12 +63,14 @@ Method OnProcessInput(pInput As %GlobalBinaryStream, pOutput As %RegisteredObjec
         Set pRequest = ##class(dc.ocr.OcrRequest).%New()
         Set pRequest.FileName = ..Folder_filename
         
+        //set the filename and ocr text to send to nlp index
         Set pNLPRequest = ##class(dc.ocr.NLPRequest).%New()
         Set pNLPRequest.FileName = ..Folder_filename
         
         // call java pex operation to do ocr, passing file into pRequest and receive ocr text with pResponse
         Set tSC = ..SendRequestSync("OcrOperation", pRequest, .pOcrResponse, 1200)
         
+        // call nlp operation to do nlp index to the domain, passing ocr text
         Set pNLPRequest.Text = pOcrResponse.StringValue
         Set tSC =  ..SendRequestSync("NLPOperation", pNLPRequest, .pResponse, 1200)
         
