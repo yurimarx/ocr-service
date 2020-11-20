@@ -51,10 +51,6 @@ $ docker-compose up -d
 
 6. Send 2 or 3 files with some text
 
-7. Open the [NLP Domain](http://localhost:52773/csp/irisapp/_iKnow.UI.Architect.zen?$NAMESPACE=IRISAPP&DOMAIN=dc.ocr.OcrNLP)
+7. Go to the [NLP Domain Explorer](http://localhost:52773/csp/IRISAPP/_iKnow.UI.KnowledgePortal.zen?$NAMESPACE=IRISAPP&domain=1)
 
-8. Press build button to index OCR text
-
-9. Go to the [NLP Domain Explorer](http://localhost:52773/csp/IRISAPP/_iKnow.UI.KnowledgePortal.zen?$NAMESPACE=IRISAPP&domain=1)
-
-10. Analyze the texts and enjoy!
+8. Analyze the texts and enjoy!
