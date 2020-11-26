@@ -17,6 +17,7 @@ XData ProductionDefinition
     <Setting Target="Host" Name="%remoteClassname">community.intersystems.pex.ocr.OcrOperation</Setting> 
     <Setting Target="Host" Name="%gatewayExtraClasspaths">.:/usr/irissys/dev/java/lib/JDK18/*:/opt/irisapp/*:/usr/irissys/dev/java/lib/gson/*:/usr/irissys/dev/java/lib/jackson/*:/jgw/ocr-pex-1.0.0.jar</Setting> 
   </Item> 
+  <Item Name="NLPOperation" Category="" ClassName="dc.ocr.NLPOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule=""></Item> 
 </Production>
 }
 
